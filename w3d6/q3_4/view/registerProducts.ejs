@@ -1,0 +1,21 @@
+
+<%- include('./header') %>
+
+    <title>Product Registration page</title>
+    <link href="css/grid.css" rel= "stylesheet">
+</head>
+<body>
+    <h3> Enter Product Details: </h3> 
+    <form id="container" action='/addToCart' method='post'>                           
+        <div id="item1">ID:</div>
+        <div id="item2"><input type='text' name='id'></div>
+        <div id="item3"></label>Name:</div>
+        <div id="item4"><input type='text' name='name'></div>
+        <div id="item5"></label>Description: </div>
+        <div id="item6"><input type='text' name='description'></div>
+        <div id="item7"></label>Quantity: </div>
+        <div id="item8"><input type='text' name='quantity'></div>
+        <div id="item9"></label>Price:</div>
+        <div id="item10"> <input type='text' name='price'></div> 
+        <div id="item11"><input id= "btn" type="submit" name="submitBtn" value="Add to Cart"></div>                
+<%- include('./footer') %>

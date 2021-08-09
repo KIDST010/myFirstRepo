@@ -1,0 +1,21 @@
+<%- include('./productListCommon.ejs') %>
+<body>
+        <div><a href='/shoppingCart'>View products in Cart</a></div>
+        <div><a href='/'>Add more Item</a></div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        
+        <% for(let item of itemList){ %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><%= item.price %></td>
+        </tr>
+        <% } %> 
+   <%- include('./footer') %>
