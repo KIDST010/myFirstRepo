@@ -15,21 +15,23 @@ app.use(express.urlencoded());
 app.get('/', (req, res) =>{
     if(req.cookies.key){
         res.render('forgetCookie');
-    }else{
-        res.render('cookiePage', {cookies: req.cookies.data});
+    }else if(req.cookies.data === undefined){
+            req.cookies.data = [];
     }
+    
+        res.render('cookiePage', {cookies: req.cookies.data});
+    
 });
 app.post('/addCookie', (req, res) =>{
-    const cook=req.cookies;
-    if(cook.data === undefined){
-        cook.data = [];
-    }else{
-        cook.data.push({
+    if(req.cookies.data === undefined){
+        req.cookies.data = [];
+}
+        req.cookies.data.push({
             key:req.body.key,
             value:req.body.value,
         });
-    }
-    res.cookie(key, value, {maxAge: 1000*60*60*24});//24 hours   
+
+    res.cookie( req.cookies.key, req.cookies. value, {maxAge: 1000*60*60*24});//24 hours   
     res.redirect('/');
 })
 app.listen(port, (err) => {
